@@ -3,8 +3,15 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class Person {
-    public String firstName,lastName ;
-    public int age;
+    private String firstName, lastName;
+    private int age;
+
+    public Person(String fN, String lN, int age){
+        this.age =age;
+        this.firstName = fN;
+        this.lastName = lN;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -31,9 +38,13 @@ public class Person {
     @Override
     public String toString() {
         return new ToStringBuilder(this)
-                .append(firstName)
                 .append(lastName)
+                .append(firstName)
                 .append(age)
                 .toString();
+    }
+
+    public String getFirstName(){
+        return firstName;
     }
 }
